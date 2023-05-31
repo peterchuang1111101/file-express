@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			.green {
+				color: green;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>測試 download 屬性:<span id="browser" class="green"></span></h1>
+
+		<h2>同源⭕</h2>
+		<a href="./images/狗01.jpg" download="dog.jpg" target="_blank">
+			<img src="./images/狗01.jpg" style="width: 100px" alt="" />
+		</a>
+		<h2>不同源❌</h2>
+		<a href="http://localhost:3001/images/%E7%8B%9701.jpg" download="dog.jpg" target="_blank">
+			<img src="http://localhost:3001/images/%E7%8B%9701.jpg" style="width: 100px" alt="" />
+		</a>
+		<h2>同源有 Content-Disposition❌</h2>
+		<a href="./api/images/狗01.jpg" download="dog.jpg" target="_blank">
+			<img src="./api/images/狗01.jpg" style="width: 100px" alt="" />
+		</a>
+		<h2>同源有 Content-Disposition 而且設為 inline❌</h2>
+		<a href="./api/inlineImages/狗01.jpg" download="dog.jpg" target="_blank">
+			<img src="./api/inlineImages/狗01.jpg" style="width: 100px" alt="" />
+		</a>
+
+		<h2>結論</h2>
+		<p>1. 同源的話 download 屬性可以用，但要注意不能有 Content-Disposition</p>
+		<p>2. 不同源的話只能透過其他方式去修改圖片的檔名</p>
+
+		<h2>不同源的解決方法</h2>
+		<a id="CrossOrigin" href="">
+			<img src="http://localhost:3001/images/%E7%8B%9701.jpg" style="width: 100px" alt="" />
+		</a>
+	
+		<script src="./main.js"></script>
+	</body>
+</html>
