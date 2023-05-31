@@ -7,7 +7,7 @@ app1.use((req, res, next) => {
 	next();
 });
 app1.use(express.static('public'));
-const port1 = 3005;
+const port1 = 3000;
 app1.get('/api/images/:imageName', (req, res) => {
 	const imageName = req.params.imageName;
 	const imagePath = `${__dirname}/public/images/${imageName}`;
