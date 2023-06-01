@@ -38,3 +38,5 @@ const port2 = 3001;
 app2.listen(port2, () => {
 	console.log(`伺服器 2 運行於 http://localhost:${port2}`);
 });
+
+module.exports = app1;
